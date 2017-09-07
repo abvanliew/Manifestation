@@ -1,0 +1,12 @@
+{
+    "name": "Manifestation",
+    "description": "Manifestation allows Incarnation Engine to Authenticate via Cognito",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "latest"
+    },
+    "scripts":{
+      "start": "node app.js"
+    }
+}
