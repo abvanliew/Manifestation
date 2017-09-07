@@ -1,8 +1,9 @@
 var express = require('express');
-var app = express();
+var port = process.env.PORT || 3000;
+var app = express(),
+path = require('path'),
+publicDir = path.join(__dirname,'public');
 
-app.get('/', function (req, res) {
-   res.send('Working');
-});
+app.use(express.static(publicDir))
 
-app.listen(3000);
+app.listen(port);
