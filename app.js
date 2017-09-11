@@ -5,12 +5,12 @@ var port = process.env.PORT || 3000;
 
 var app = express();
 
-//app.set( 'view engine', 'jade' );
+app.set( 'view engine', 'jade' );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
 app.get('/', function(req, res) 
 {
-	res.send('Working');
+	res.render('index.jade');
 });
 
 app.listen( port );
