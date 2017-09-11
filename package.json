@@ -5,7 +5,8 @@
     "private": true,
     "dependencies": {
         "express": "latest",
-        "body-parser": "latest"
+        "body-parser": "latest",
+        "jade": "latest"
     },
     "scripts":{
       "start": "node app.js"
