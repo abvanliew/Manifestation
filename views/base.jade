@@ -1,7 +1,9 @@
-block vars 
+block vars
 doctype html
 html
-  head
-    title SVCC Auth | #{title}
-  body
-    block body
+	head
+		title Manifestation | #{title}
+	body
+		if error
+			p ERROR: #{error}
+		block body

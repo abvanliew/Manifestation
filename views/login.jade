@@ -1,23 +1,18 @@
 extends base
 
 block vars
-  - var title = 'Login'
+	- var title = 'Login'
 
 block body
-  h1 Log Into Your Account
+	h1 Log Into Your Account
 
-  if error
-    p ERROR: #{error}
+	form( method="post" )
+		span Email:
+		input( type="email", name="email", required=true )
+		br
 
-  form(method="post")
-    input(type="hidden", name="_csrf", value=csrfToken)
+		span Password:
+		input( type="password", name="password", required=true )
+		br
 
-    span Email:
-    input(type="email", name="email", required=true)
-    br
-
-    span Password:
-    input(type="password", name="password", required=true)
-    br
-
-    input(type="submit")
+		input( type="submit" )
