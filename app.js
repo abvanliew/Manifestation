@@ -21,7 +21,8 @@ app.set( 'view engine', 'jade' );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
 var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
-var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool( poolData );
+var attributeList = [];
 
 app.get( '/', function( req, res )
 {
@@ -40,7 +41,14 @@ app.get( '/register', function( req, res )
 
 app.post( '/register', function( req, res )
 {
-	userPool.signUp('username', 'password', null, null, function(err, result) {
+	var dataUsername = {
+		Name : 'UserName',
+		Value : body.req.userName
+    	};
+	var attribUsername = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataUsername);
+	attributeList.push(attribUsername);
+	
+	userPool.signUp( req.body.email, req.body.password, attributeList, null, function(err, result) {
         if (err) {
             alert(err);
             return;
