@@ -1,7 +1,7 @@
 var express = require( 'express' );
 var bodyParser = require( 'body-parser' );
-var AWS = require( 'aws-sdk' );
-var AWSCognito = require( 'amazon-cognito-identity-js' );
+//var AWS = require( 'aws-sdk' );
+//var AWSCognito = require( 'amazon-cognito-identity-js' );
 
 var port = process.env.PORT || 3000;
 
