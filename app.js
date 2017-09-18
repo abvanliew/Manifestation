@@ -59,7 +59,7 @@ app.post( '/register', function( req, res )
         //cognitoUser = result.user;
         //console.log( 'user name is ' + cognitoUser.getUsername() );
 	//res.send( cognitoUser.getUsername() );
-    	});
+    	//});
 });
 
 app.get( '/dashboard', function( req, res )
