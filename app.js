@@ -12,13 +12,16 @@ var AWS_REGION = process.env.AWS_REGION;
 //var COGNITO_DATASET_NAME = process.env.COGNITO_DATASET_NAME;
 //var COGNITO_KEY_NAME = process.env.COGNITO_KEY_NAME;
 //var CALLBACKURL = process.env.CALLBACKURL;
-//var AMAZON_CLIENT_ID = process.env.AMAZON_CLIENT_ID;
+var AMAZON_CLIENT_ID = process.env.AMAZON_CLIENT_ID;
 //var AMAZON_CLIENT_SECRET = process.env.AMAZON_CLIENT_SECRET;
 
 var app = express();
 
 app.set( 'view engine', 'jade' );
 app.use( bodyParser.urlencoded( { extended: true } ) );
+
+var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
+var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
 
 app.get( '/', function( req, res )
 {
@@ -33,6 +36,18 @@ app.get( '/login', function( req, res )
 app.get( '/register', function( req, res )
 {
 	res.render( 'register.jade' );
+});
+
+app.post( '/register', function( req, res )
+{
+	userPool.signUp('username', 'password', null, null, function(err, result) {
+        if (err) {
+            alert(err);
+            return;
+        }
+        cognitoUser = result.user;
+        console.log('user name is ' + cognitoUser.getUsername());
+    	});
 });
 
 app.get( '/dashboard', function( req, res )
