@@ -6,7 +6,9 @@
     "dependencies": {
         "express": "latest",
         "body-parser": "latest",
-        "jade": "latest"
+        "jade": "latest",
+        "aws-sdk": "latest",
+        "amazon-cognito-identity-js": "latest"
     },
     "scripts":{
       "start": "node app.js"
