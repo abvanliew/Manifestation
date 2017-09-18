@@ -20,9 +20,9 @@ var app = express();
 app.set( 'view engine', 'jade' );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
-//var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
+var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
 //var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool( poolData );
-//var attributeList = [];
+var attributeList = [];
 
 app.get( '/', function( req, res )
 {
