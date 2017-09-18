@@ -12,7 +12,7 @@ var AWS_REGION = process.env.AWS_REGION;
 //var COGNITO_DATASET_NAME = process.env.COGNITO_DATASET_NAME;
 //var COGNITO_KEY_NAME = process.env.COGNITO_KEY_NAME;
 //var CALLBACKURL = process.env.CALLBACKURL;
-var AMAZON_CLIENT_ID = process.env.AMAZON_CLIENT_ID;
+//var AMAZON_CLIENT_ID = process.env.AMAZON_CLIENT_ID;
 //var AMAZON_CLIENT_SECRET = process.env.AMAZON_CLIENT_SECRET;
 
 var app = express();
@@ -45,17 +45,19 @@ app.post( '/register', function( req, res )
 		Name : 'UserName',
 		Value : body.req.userName
     	};
-	var attribUsername = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataUsername);
-	attributeList.push(attribUsername);
 	
-	userPool.signUp( req.body.email, req.body.password, attributeList, null, function(err, result) {
-        if (err) {
-            alert(err);
-            return;
-        }
-        cognitoUser = result.user;
-        console.log( 'user name is ' + cognitoUser.getUsername() );
-	res.send( cognitoUser.getUsername() );
+	res.json( req.body );
+	//var attribUsername = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataUsername);
+	//attributeList.push(attribUsername);
+	
+	//userPool.signUp( req.body.email, req.body.password, attributeList, null, function(err, result) {
+        //if (err) {
+        //    alert(err);
+        //    return;
+        //}
+        //cognitoUser = result.user;
+        //console.log( 'user name is ' + cognitoUser.getUsername() );
+	//res.send( cognitoUser.getUsername() );
     	});
 });
 
