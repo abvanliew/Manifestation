@@ -5,7 +5,7 @@ var AWSCognito = require( 'amazon-cognito-identity-js' );
 
 var port = process.env.PORT || 3000;
 
-var AWS_REGION = process.env.AWS_REGION;
+//var AWS_REGION = process.env.AWS_REGION;
 //var AWS_ACCOUNT_ID = process.env.AWS_ACCOUNT_ID;
 //var COGNITO_IDENTITY_POOL_ID = process.env.COGNITO_IDENTITY_POOL_ID;
 //var IAM_ROLE_ARN = process.env.IAM_ROLE_ARN;
@@ -20,9 +20,9 @@ var app = express();
 app.set( 'view engine', 'jade' );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
-var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
-var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool( poolData );
-var attributeList = [];
+//var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
+//var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool( poolData );
+//var attributeList = [];
 
 app.get( '/', function( req, res )
 {
@@ -41,12 +41,13 @@ app.get( '/register', function( req, res )
 
 app.post( '/register', function( req, res )
 {
-	var dataUsername = {
-		Name : 'UserName',
-		Value : body.req.userName
-    	};
-	
 	res.json( req.body );
+	
+	//var dataUsername = {
+	//	Name : 'UserName',
+	//	Value : body.req.userName
+    	//};
+	
 	//var attribUsername = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataUsername);
 	//attributeList.push(attribUsername);
 	
