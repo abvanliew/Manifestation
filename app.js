@@ -12,7 +12,7 @@ var port = process.env.PORT || 3000;
 //var COGNITO_DATASET_NAME = process.env.COGNITO_DATASET_NAME;
 //var COGNITO_KEY_NAME = process.env.COGNITO_KEY_NAME;
 //var CALLBACKURL = process.env.CALLBACKURL;
-//var AMAZON_CLIENT_ID = process.env.AMAZON_CLIENT_ID;
+var AMAZON_CLIENT_ID = process.env.AMAZON_CLIENT_ID;
 //var AMAZON_CLIENT_SECRET = process.env.AMAZON_CLIENT_SECRET;
 
 var app = express();
