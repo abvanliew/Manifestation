@@ -21,11 +21,10 @@ app.set( 'view engine', 'jade' );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
 var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
-//var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool( poolData );
-//var attributeList = [];
-
 var cognitoidentityserviceprovider = new AWS.CognitoIdentityServiceProvider();
 var userPool = cognitoidentityserviceprovider.createUserPool( poolData );
+
+var attributeList = [];
 
 app.get( '/', function( req, res )
 {
@@ -44,25 +43,25 @@ app.get( '/register', function( req, res )
 
 app.post( '/register', function( req, res )
 {
-	res.json( req.body );
+	//res.json( req.body );
 	
 	//var dataUsername = {
-	//	Name : 'UserName',
+	//	Name : 'custom:DisplayName',
 	//	Value : body.req.userName
     	//};
 	
 	//var attribUsername = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataUsername);
 	//attributeList.push(attribUsername);
 	
-	//userPool.signUp( req.body.email, req.body.password, attributeList, null, function(err, result) {
-        //if (err) {
-        //    alert(err);
-        //    return;
-        //}
-        //cognitoUser = result.user;
-        //console.log( 'user name is ' + cognitoUser.getUsername() );
-	//res.send( cognitoUser.getUsername() );
-    	//});
+	userPool.signUp( req.body.email, req.body.password, attributeList, null, function(err, result) {
+		if (err) {
+		    alert(err);
+		    return;
+		}
+		cognitoUser = result.user;
+		//console.log( 'user name is ' + cognitoUser.getUsername() );
+		//res.send( cognitoUser.getUsername() );
+    	});
 });
 
 app.get( '/dashboard', function( req, res )
