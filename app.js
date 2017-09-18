@@ -54,7 +54,8 @@ app.post( '/register', function( req, res )
             return;
         }
         cognitoUser = result.user;
-        console.log('user name is ' + cognitoUser.getUsername());
+        console.log( 'user name is ' + cognitoUser.getUsername() );
+	res.send( cognitoUser.getUsername() );
     	});
 });
 
