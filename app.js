@@ -21,6 +21,8 @@ var app = express();
 
 app.set( 'view engine', 'jade' );
 app.use( bodyParser.urlencoded( { extended: true } ) );
+app.use( express.static('css') );
+app.use( express.static('js') );
 
 //var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
 //var cognitoidentityserviceprovider = new AWS.CognitoIdentityServiceProvider();
