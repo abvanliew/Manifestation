@@ -20,6 +20,8 @@ var app = express();
 //AWSCognito.config.region = AWS_REGION;
 
 app.set( 'view engine', 'jade' );
+app.locals.pretty = true;
+
 app.use( bodyParser.urlencoded( { extended: true } ) );
 app.use( express.static('css') );
 app.use( express.static('js') );
