@@ -1,7 +1,8 @@
 var express = require( 'express' );
 var bodyParser = require( 'body-parser' );
-var AWS = require( 'aws-sdk' );
-var AWSCognito = require( 'amazon-cognito-identity-js' );
+var path = require('path');
+//var AWS = require( 'aws-sdk' );
+//var AWSCognito = require( 'amazon-cognito-identity-js' );
 
 var port = process.env.PORT || 3000;
 
@@ -23,8 +24,8 @@ app.set( 'view engine', 'jade' );
 app.locals.pretty = true;
 
 app.use( bodyParser.urlencoded( { extended: true } ) );
-app.use("/css", express.static(__dirname + 'css'));
-app.use("/js", express.static(__dirname + 'js'));
+app.use( '/css', express.static( __dirname + '/css') );
+app.use( '/js', express.static( __dirname + '/js') );
 
 //var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
 //var cognitoidentityserviceprovider = new AWS.CognitoIdentityServiceProvider();
