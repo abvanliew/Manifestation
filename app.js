@@ -12,19 +12,19 @@ var port = process.env.PORT || 3000;
 //var COGNITO_DATASET_NAME = process.env.COGNITO_DATASET_NAME;
 //var COGNITO_KEY_NAME = process.env.COGNITO_KEY_NAME;
 //var CALLBACKURL = process.env.CALLBACKURL;
-var AMAZON_CLIENT_ID = process.env.AMAZON_CLIENT_ID;
+//var AMAZON_CLIENT_ID = process.env.AMAZON_CLIENT_ID;
 //var AMAZON_CLIENT_SECRET = process.env.AMAZON_CLIENT_SECRET;
 
 var app = express();
 
-AWSCognito.config.region = AWS_REGION;
+//AWSCognito.config.region = AWS_REGION;
 
 app.set( 'view engine', 'jade' );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
-var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
-var cognitoidentityserviceprovider = new AWS.CognitoIdentityServiceProvider();
-var userPool = cognitoidentityserviceprovider.createUserPool( poolData );
+//var poolData = { UserPoolId : 'us-east-1_3DkLrpysP', ClientId : AMAZON_CLIENT_ID };
+//var cognitoidentityserviceprovider = new AWS.CognitoIdentityServiceProvider();
+//var userPool = cognitoidentityserviceprovider.createUserPool( poolData );
 
 var attributeList = [];
 
@@ -45,7 +45,7 @@ app.get( '/register', function( req, res )
 
 app.post( '/register', function( req, res )
 {
-	//res.json( req.body );
+	res.json( req.body );
 	
 	//var dataUsername = {
 	//	Name : 'custom:DisplayName',
@@ -55,15 +55,15 @@ app.post( '/register', function( req, res )
 	//var attribUsername = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserAttribute(dataUsername);
 	//attributeList.push(attribUsername);
 	
-	userPool.signUp( req.body.email, req.body.password, attributeList, null, function(err, result) {
-		if (err) {
-		    alert(err);
-		    return;
-		}
-		cognitoUser = result.user;
+	//userPool.signUp( req.body.email, req.body.password, attributeList, null, function(err, result) {
+	//	if (err) {
+	//	    alert(err);
+	//	    return;
+	//	}
+	//	cognitoUser = result.user;
 		//console.log( 'user name is ' + cognitoUser.getUsername() );
 		//res.send( cognitoUser.getUsername() );
-    	});
+    //	});
 });
 
 app.get( '/dashboard', function( req, res )
