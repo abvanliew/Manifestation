@@ -17,6 +17,8 @@ var AWS_REGION = process.env.AWS_REGION;
 
 var app = express();
 
+AWSCognito.config.region = AWS_REGION;
+
 app.set( 'view engine', 'jade' );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
