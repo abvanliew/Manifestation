@@ -4,19 +4,19 @@ block vars
 	- var title = 'Register'
 
 block body
-	h1 Create an Account
+	form.form-signin
+		h2.form-signin-heading Create an Account
+		
+		label.sr-only( for='inputEmail' ) Email Address
+		input#inputEmail.form-control( type='email', placeholder='Email Address', required=true, autofocus='' )
+		
+		label.sr-only( for='inputDisplayName' ) Display Name
+		input#inputDisplayName.form-control( type='text', placeholder='Display Name',required=true )
+		
+		label.sr-only( for='inputPassword' ) Password
+		input#inputPassword.form-control( type='password', placeholder='Password', required=true )
 
-	form(method="post")
-		span Username:
-		input(type="text", name="userName", required=true)
-		br
-
-		span Email:
-		input(type="email", name="email", required=true)
-		br
-
-		span Password:
-		input(type="password", name="password", required=true)
-		br
-
-		input(type="submit")
+		button.btn.btn-lg.btn-primary.btn-block( type='submit', id="submit-registration" ) Register
+		
+block footer
+	script( src='/js/register.js' )

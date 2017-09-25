@@ -3,5 +3,4 @@ var poolData = {
 	ClientId : '3islbbi8261u5mpvnkf4d4gifk'
 };
 
-var CognitoUserPool = AmazonCognitoIdentity.CognitoUserPool( poolData );
-var attributeList = [];
+var UserPool = new AmazonCognitoIdentity.CognitoUserPool( poolData );

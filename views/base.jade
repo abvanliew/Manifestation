@@ -4,11 +4,16 @@ html
 	head
 		title Manifestation | #{title}
 		
-		script(src='/js/aws-cognito-sdk.min.js')
-		script(src='/js/amazon-cognito-identity.min.js')
+		script( src='/js/aws-cognito-sdk.min.js' )
+		script( src='/js/amazon-cognito-identity.min.js' )
 		
-		link(rel='stylesheet', href='/css/bootstrap.min.css')
+		link( rel='stylesheet', href='/css/bootstrap.min.css' )
 	body
-		if error
-			p ERROR: #{error}
-		block body
+		.container
+			if error
+				p ERROR: #{ error }
+			block body
+	script( scr='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js' )
+	script( scr='/js/bootstrap.min.js' )
+	script( src='/js/auth.js' )
+	block footer

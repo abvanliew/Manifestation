@@ -11,8 +11,8 @@ app.set( 'view engine', 'jade' );
 app.locals.pretty = true;
 
 app.use( bodyParser.urlencoded( { extended: true } ) );
-app.use( '/css', express.static( __dirname + '/css') );
-app.use( '/js', express.static( __dirname + '/js') );
+app.use( '/css', express.static( __dirname + '/static/css') );
+app.use( '/js', express.static( __dirname + '/static/js') );
 
 var poolData = { 
 	UserPoolId : 'us-east-1_3DkLrpysP',
@@ -37,9 +37,9 @@ app.get( '/register', function( req, res )
 	res.render( 'register.jade' );
 });
 
-app.post( '/register', function( req, res )
-{
-	res.json( req.body );
+//app.post( '/register', function( req, res )
+//{
+//	res.json( req.body );
 	
 	//var dataUsername = {
 	//	Name : 'custom:DisplayName',
@@ -58,7 +58,7 @@ app.post( '/register', function( req, res )
 		//console.log( 'user name is ' + cognitoUser.getUsername() );
 		//res.send( cognitoUser.getUsername() );
     //	});
-});
+//});
 
 app.get( '/dashboard', function( req, res )
 {
