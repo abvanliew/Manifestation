@@ -5,12 +5,16 @@ block vars
 
 block body
 	form.form-signin
-		h2.form-signin-heading Sign in
-		
-		label.sr-only(for='inputEmail') Email address
-		input#inputEmail.form-control(type='email', placeholder='Email address', name="email", required=true, autofocus='')
+		label.sr-only(for='inputUID') Email / Username
+		input#inputUID.form-control(type='text', placeholder='Email / Username', required=true, autofocus='')
 		
 		label.sr-only(for='inputPassword') Password
-		input#inputPassword.form-control(type='password', placeholder='Password', name="password", required=true)
+		input#inputPassword.form-control(type='password', placeholder='Password', required=true)
 
-		button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+		button#submit-login.btn.btn-lg.btn-primary.btn-block(type='submit') Login
+		
+	p
+		a(href='forgotpass') Forgotten Password?
+
+block footer
+	script( src='/js/login.js' )

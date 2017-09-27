@@ -1,0 +1,16 @@
+extends base
+
+block vars
+	- var title = 'Test'
+
+block body
+	form.form-signin
+		h2.form-signin-heading Testing
+		
+		label.sr-only( for='inputDisplayName' ) Display Name
+		input#inputDisplayName.form-control( type='text', placeholder='Display Name',required=true )
+
+		button#submit-test.btn.btn-lg.btn-primary.btn-block( type='submit' ) Test
+
+block footer
+	script( src='/js/test.js' )

@@ -1,0 +1,19 @@
+extends base
+
+block vars
+	- var title = 'Change Password'
+
+block body
+	p
+		span#DisplayName
+	form.form-signin
+		label.sr-only(for='inputOldPassword') Old Password
+		input#inputOldPassword.form-control(type='password', placeholder='Old Password', required=true)
+		
+		label.sr-only(for='inputNewPassword') New Password
+		input#inputNewPassword.form-control(type='password', placeholder='New Password', required=true)
+
+		button#submit-changepass.btn.btn-lg.btn-primary.btn-block(type='submit') Change Password
+
+block footer
+	script( src='/js/changepass.js' )

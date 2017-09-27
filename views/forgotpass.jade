@@ -1,0 +1,14 @@
+extends base
+
+block vars
+	- var title = 'Forgotten Password'
+
+block body
+	form.form-signin
+		label.sr-only(for='inputEmail') Email / Username
+		input#inputUID.form-control(type='text', placeholder='Email / Username', required=true, autofocus='')
+
+		button#submit-forgotpass.btn.btn-lg.btn-primary.btn-block(type='submit') Reset Password
+
+block footer
+	script( src='/js/forgotpass.js' )

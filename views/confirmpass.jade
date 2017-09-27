@@ -1,0 +1,20 @@
+extends base
+
+block vars
+	- var title = 'Confirm Password'
+
+block body
+	form.form-signin
+		label.sr-only(for='inputUID') Email / Username
+		input#inputUID.form-control(type='text', placeholder='Email / Username', required=true, autofocus='')
+		
+		label.sr-only(for='inputCode') Confirmation Code
+		input#inputCode.form-control(type='number', placeholder='Confirmation Code', required=true)
+		
+		label.sr-only(for='inputNewPassword') New Password
+		input#inputNewPassword.form-control(type='password', placeholder='New Password', required=true)
+
+		button#submit-changepass.btn.btn-lg.btn-primary.btn-block(type='submit') Change Password
+
+block footer
+	script( src='/js/confirmpass.js' )
